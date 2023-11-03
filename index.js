@@ -5,10 +5,10 @@ import cors from 'cors';
 const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors({ origin: 'https://paymentfrontend.piyushjainbny.repl.co', credentials: true }))
+app.use(cors({ origin: 'https://getbestpaymentterms.netlify.app', credentials: true }))
 
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://paymentfrontend.piyushjainbny.repl.co');
+  res.header('Access-Control-Allow-Origin', "*");
   next()
 })
 
