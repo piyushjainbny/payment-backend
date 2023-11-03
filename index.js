@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 })
 
-const uri = process.env['DB_URL'];
+const uri = process.env.DB_URL;
 
 
 const con = mongoose.connect(uri)
