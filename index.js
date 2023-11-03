@@ -15,10 +15,10 @@ app.use((req, res, next) => {
   next();
 })
 
-const uri = process.env.DB_URL;
+//const uri = process.env.DB_URL;
 
 
-const con = mongoose.connect(uri)
+const con = mongoose.connect("mongodb+srv://piyush9131:piyush9131@cluster0.mfmd7gv.mongodb.net/PaymentsDb?retryWrites=true&w=majority")
 
 if (con) {
   console.log('connected to database')
