@@ -7,9 +7,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors({ origin: 'https://getbestpaymentterms.netlify.app', credentials: true }))
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://getbestpaymentterms.netlify.app');
-  next()
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://getbestpaymentterms.netlify.app");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
 })
 
 const uri = process.env['DB_URL'];
@@ -58,6 +60,10 @@ const Regulations = new mongoose.model('Regulation', regulationSchema)
 // })
 
 // regulation.save()
+
+app.get('/', (req, res) => {
+  res.send('Hello world')
+})
 
 app.post('/', async (req, res) => {
   const data = req.body
